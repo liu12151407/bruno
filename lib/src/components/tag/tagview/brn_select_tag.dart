@@ -199,10 +199,18 @@ class _BrnSelectTagState extends State<BrnSelectTag> {
     Container container = Container(
       constraints: BoxConstraints(minWidth: widget.themeData!.tagMinWidth),
       decoration: BoxDecoration(
-          color: selected
-              ? (widget.themeData!.selectedTagBackgroundColor)
-              : (widget.themeData!.tagBackgroundColor),
-          borderRadius: BorderRadius.circular(widget.themeData!.tagRadius)),
+        color: selected
+            ? (widget.themeData!.selectedTagBackgroundColor)
+            : (widget.themeData!.tagBackgroundColor),
+        borderRadius: BorderRadius.circular(widget.themeData!.tagRadius),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5), // 浅灰色阴影
+            offset: const Offset(3, 4), // 阴影偏移量
+            blurRadius: 2.0, // 模糊半径
+          ),
+        ],
+      ),
       width: widget.fixWidthMode ? widget.themeData!.tagWidth : null,
       height: widget.themeData!.tagHeight,
       padding: EdgeInsets.only(left: 8, right: 8),
