@@ -261,6 +261,7 @@ class BrnTabBarState extends State<BrnTabBar> {
         widget.tabWidth != null ||
         widget.isScroll;
     return TabBar(
+        tabAlignment: _isScrollable ? TabAlignment.start : TabAlignment.fill,
         tabs: fillWidgetByDataList(_isScrollable),
         controller: widget.controller,
         isScrollable: _isScrollable,
@@ -273,6 +274,8 @@ class BrnTabBarState extends State<BrnTabBar> {
         unselectedLabelStyle: widget.unselectedLabelStyle ??
             widget.themeData!.unselectedLabelStyle.generateTextStyle(),
         dragStartBehavior: widget.dragStartBehavior,
+        dividerColor: Colors.transparent,
+        dividerHeight: 0,
         onTap: (index) {
           if (widget.onTap != null) {
             widget.onTap!(this, index);
@@ -409,7 +412,7 @@ class BrnTabBarState extends State<BrnTabBar> {
               ),
               backgroundColor: Colors.red,
               alignment: Alignment.topLeft,
-              offset:Offset(_dx,_dy) ,
+              offset: Offset(_dx,_dy),
               padding: _badgePadding,
               largeSize: _largeSize,
               child: Text(
